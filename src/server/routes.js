@@ -2,76 +2,95 @@ const express = require('express');
 const routes = express.Router();
 
 const UserController = require('../app/controllers/UserController');
+const BooksController = require('../app/controllers/BooksController');
 
-routes.post('/usuario', UserController.store);
+routes.post('/usuario', UserController.store); // OK
 /*
   * BODY
-    - name (string)
-    - phone (string)
-    - geners (string) Ex.: "terror, suspense mistério"
+    + name (string)
+    + phone (string)
+    + geners (string) Ex.: "terror, suspense mistério"
   
   * RESPONSE
-    - status (number)
-    - successMessage (string)
+    + status (number)
+    + successMessage (string)
 */
 
-// routes.get('/livros/maisLidos');
+routes.get('/:phone/livros/melhoresAvaliados', BooksController.bestRated);
 /*
+  * REQUEST
+    * Params  
+      + phone (string)
+
   * RESPONSE
-    - status (number)
-    - bookNames (string[])
+    * Body
+      + status (number)
+      + bookNames (string[])
 */
 
-// routes.get('/livrosRecomendados');
+// routes.get('/:phone/livrosRecomendados');
 /*
+  * REQUEST
+    * Params
+      + phone (string)
+
   * RESPONSE
-    - status (number)
-    - bookNames (string[])
+    * Body
+      + status (number)
+      + bookNames (string[])
 */
 
 // routes.get('/livros/:nomeDoLivro/sinopse');
 /*
-  * PARAMS
-    - nomeDoLivro (string)
+  * REQUEST
+    * Params  
+      + nomeDoLivro (string)
 
   * RESPONSE
-    - status (number)
-    - bookName (string)
-    - bookSinopse (string)
+    * Body
+      + status (number)
+      + bookName (string)
+      + bookSinopse (string)
 */
 
 // routes.get('/livros/:nomeDoLivro/opinioes');
 /*
-  * PARAMS
-    - nomeDoLivro (string)
+  * REQUEST
+    * Params  
+      + nomeDoLivro (string)
 
   * RESPONSE
-    - status (number)
-    - bookName (string)
-    - userReviews (object[])
-      - username (string)
-      - comments (string)
-      - likes (decimal)
+    * Body
+      + status (number)
+      + bookName (string)
+      + userReviews (object[])
+        - username (string)
+        - comments (string)
+        - likes (decimal)
 */
 
 // routes.get('/livros/:nomeDoLivro/resenha');
 /*
-  * PARAMS
-    - nomeDoLivro (string)
+  * REQUEST
+    * Params  
+      + nomeDoLivro (string)
 
   * RESPONSE
-    - status (number)
-    - audio (file/mp3)
+    * Body
+      + status (number)
+      + audio (file/mp3)
 */
 
 // routes.get('/livros/:nomeDoLivro/download');
 /*
-  * PARAMS
-    - nomeDoLivro (string)
+  * REQUEST
+    * Params  
+      + nomeDoLivro (string)
 
   * RESPONSE
-    - status (number)
-    - file (file/dev)
+    * Body
+      + status (number)
+      + file (file/dev)
 */
 
 module.exports = routes;

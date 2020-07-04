@@ -1,6 +1,6 @@
 const connection = require('../../database/connection');
 
-class BookController {
+class UserController {
   static async store(request, response) {
     const name = String(request.body.name);
     const phone = String(request.body.whatsappNumber);
@@ -35,4 +35,4 @@ class BookController {
   }
 }
 
-module.exports = BookController;
+module.exports = UserController;

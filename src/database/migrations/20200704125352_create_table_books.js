@@ -3,10 +3,10 @@ exports.up = function (knex) {
     table.increments('id');
     table.string('name').notNullable();
     table.text('description').notNullable();
-    table.string('imageUrl').notNullable();
-    table.string('filePath').notNullable();
-    table.string('audioPath');
-    table.integer('avaliaton').default(0);
+    table.string('imageName').notNullable();
+    table.string('fileName').notNullable();
+    table.string('audioName');
+    table.decimal('avaliation', 1, 1).default(0.0);
     table.timestamps(true, true);
   });
 };
