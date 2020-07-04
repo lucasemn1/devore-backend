@@ -8,7 +8,7 @@ routes.post('/usuario', UserController.store);
   * BODY
     - name (string)
     - phone (string)
-    - geners (string) Ex.: "terror, suspense e mistério"
+    - geners (string) Ex.: "terror, suspense mistério"
   
   * RESPONSE
     - status (number)
