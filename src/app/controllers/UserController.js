@@ -1,15 +1,21 @@
+const connection = require('../../database/connection');
 
 class BookController {
-  static store(request, response) {
+  static async store(request, response) {
     const name = string(request.body.name);
     const phone = string(request.body.phone);
-    const categories = Array(...request.body.categories);
+    const geners = Array(...request.body.categories);
 
     if( !name || !phone ){
       return response.status(416);
     }
 
-    // const connection = 
+    const [userId] = await connection('users').insert({
+      name,
+      whatsappNumber: phone
+    });
+
+    const categoriesId = await connection('geners')
 
 
     return response.send('Hello World');
