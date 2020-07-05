@@ -2,7 +2,6 @@ exports.up = function (knex) {
   return knex.schema.createTable('geners', (table) => {
     table.increments('id');
     table.string('name').notNullable().unique();
-    table.integer('classroomId').unsigned().references('id').inTable('classroom').onDelete('CASCADE');
     table.timestamps(true, true);
   });
 };
