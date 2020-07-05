@@ -10,6 +10,7 @@ const BookProfilePhotosAndVideosController = require('../app/controllers/BookPro
 const BookProfileComments = require('../app/controllers/BookProfileComments');
 const BookProfileAudios = require('../app/controllers/BookProfileAudios');
 const RankingAllSchoolClassesController = require('../app/controllers/RankingAllSchoolClassesController');
+const RankingClassController = require('../app/controllers/RankingClassController');
 
 // public documents folder: /public/books/name.pdf
 // public images folder: /public/images/name.png || jpg
@@ -108,8 +109,14 @@ routes.get('/rankingDaEscola', auth, RankingAllSchoolClassesController.index)
   REQUEST
     * headers
       + accessId (string)
-    * params
-      + bookId (number)
+*/
+
+
+routes.get('/rankingDaTurma', auth, RankingClassController.index)
+/*
+  REQUEST
+    * headers
+      + accessId (string)
 */
 
 module.exports = routes;
