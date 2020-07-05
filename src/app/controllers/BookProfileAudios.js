@@ -20,8 +20,7 @@ class BookProfileAudios {
       .where('audios.bookId', '=', bookId)
       .orderBy('audios.created_at', 'desc')
       .limit(10)
-      .offset( ( page - 1 ) * 10 )
-      .count();
+      .offset( ( page - 1 ) * 10 );
 
     response.header('X-total-count', countResults[0]['count(*)']);
     return response.status(200).json(results);

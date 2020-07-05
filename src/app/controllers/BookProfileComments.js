@@ -12,7 +12,6 @@ class BookProfileComments {
     let countResults = await connection('comments')
       .join('users', 'users.id', 'comments.userId')
       .where('comments.bookId', '=', bookId)
-      .orderBy('comments.created_at', 'desc')
       .count();
 
     let results = await connection('comments')
@@ -22,11 +21,6 @@ class BookProfileComments {
       .orderBy('comments.created_at', 'desc')
       .limit(10)
       .offset( ( page - 1 ) * 10 );
-
-    results = results.map(result => {
-      delete result['count(*)'];
-      return result;
-    })
 
     response.header('X-total-count', countResults[0]['count(*)']);
     return response.status(200).json(results);
