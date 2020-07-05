@@ -10,7 +10,7 @@ class UserController {
       .filter(value => value.name.length > 1);
     
     if( name === '' || phone === '' || serializatedGeners.length < 3 ){
-      return response.status(416).send('Não foi');
+      return response.status(416).json({ message: 'Parâmetros necessários não passados.' })
     }
 
     const userId = await connection('users').insert({name, whatsappNumber: phone});

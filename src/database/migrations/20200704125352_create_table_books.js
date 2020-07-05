@@ -5,7 +5,6 @@ exports.up = function (knex) {
     table.text('description').notNullable();
     table.string('imageName').notNullable();
     table.string('fileName').notNullable();
-    table.string('audioName');
     table.decimal('avaliation', 1, 1).default(0.0);
     table.timestamps(true, true);
   });
