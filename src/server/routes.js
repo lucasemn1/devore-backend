@@ -10,6 +10,7 @@ const BookProfilePhotosAndVideosController = require('../app/controllers/BookPro
 const BookProfileComments = require('../app/controllers/BookProfileComments');
 const BookProfileAudios = require('../app/controllers/BookProfileAudios');
 const RankingAllSchoolClassesController = require('../app/controllers/RankingAllSchoolClassesController');
+const RankingAllSchoolStudentsController = require('../app/controllers/RankingAllSchoolStudentsController');
 const RankingClassController = require('../app/controllers/RankingClassController');
 
 // public documents folder: /public/books/name.pdf
@@ -113,6 +114,13 @@ routes.get('/rankingDaEscola', auth, RankingAllSchoolClassesController.index)
 
 
 routes.get('/rankingDaTurma', auth, RankingClassController.index)
+/*
+  REQUEST
+    * headers
+      + accessId (string)
+*/
+
+routes.get('/rankingTopsDaEscola', auth, RankingAllSchoolStudentsController.index)
 /*
   REQUEST
     * headers
