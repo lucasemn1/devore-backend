@@ -5,12 +5,13 @@ const auth = require('../app/middlewares/auth');
 const VideoController = require('../app/controllers/VideoController');
 const CommentController = require('../app/controllers/CommentController');
 const PhotoController = require('../app/controllers/PhotoController');
-
+const BookController = require('../app/controllers/BookController');
+const BookProfilePhotosAndVideosController = require('../app/controllers/BookProfilePhotosAndVideosController');
 // public documents folder: /public/books/name.pdf
 // public images folder: /public/images/name.png || jpg
 // public audios folder: /public/reviews/name.mp4
 
-routes.get('/videos', auth, VideoController.index)
+routes.get('/videos', auth, VideoController.index);
 /*
   REQUEST
     * headers
@@ -22,7 +23,7 @@ routes.get('/videos', auth, VideoController.index)
 */
 
 
-routes.get('/comments', auth, CommentController.index)
+routes.get('/comments', auth, CommentController.index);
 /*
   REQUEST
     * headers
@@ -34,7 +35,7 @@ routes.get('/comments', auth, CommentController.index)
 */
 
 
-routes.get('/photos', auth, PhotoController.index)
+routes.get('/photos', auth, PhotoController.index);
 /*
   REQUEST
     * headers
@@ -43,6 +44,28 @@ routes.get('/photos', auth, PhotoController.index)
   RESPONSE
     * body
       + videos: video[]
+*/
+
+routes.get('/livro/:bookId', BookController.get);
+/*
+  REQUEST
+    * params
+      + bookId (number)
+  
+  RESPONSE
+    * body
+      + book: {}
+*/
+
+routes.get('/livro/:bookId/videosEFotos', BookProfilePhotosAndVideosController.get);
+/*
+  REQUEST
+    * params
+      + bookId (number)
+  
+  RESPONSE
+    * body
+      + book: {}
 */
 
 module.exports = routes;
